@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api, exceptions, _
-from odoo.exceptions import UserError
-
-
+from odoo import models, fields, api, exceptions
 import uuid
 from datetime import date
 
