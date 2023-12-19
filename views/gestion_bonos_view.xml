@@ -1,0 +1,80 @@
+<odoo>
+
+    <record id="action_duplicate_record" model="ir.actions.act_window">
+        <field name="name">Duplicar Registro</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gestion_bonos.duplicate_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_duplicate_wizard_form" model="ir.ui.view">
+        <field name="name">gestion_bonos.duplicate_wizard.form</field>
+        <field name="model">gestion_bonos.duplicate_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Número de Copias">
+                <field name="num_copies"/>
+                <footer>
+                    <button name="duplicate_record" string="Duplicar" type="object" class="oe_highlight"/>
+                    <button string="Cancelar" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_coupon_form" model="ir.ui.view">
+        <field name="name">coupon.form</field>
+        <field name="model">gestion_bonos.coupon</field>
+        <field name="arch" type="xml">
+            <form string="Coupon">
+                <header>
+                    <button name="%(action_duplicate_record)d" string="Duplicar n veces" type="action" class="oe_highlight"/>
+                </header>                
+                    <group>
+                        <field name="name"/>
+                        <field name="creation_date"/>
+                        <field name="expiration_date"/>
+                        <field name="discount_type"/>
+                        <field name="discount"/>
+                    </group>
+                    
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="units"/>
+                        <field name="product_id"/>
+                        <field name="token"/>
+                        <field name="estado"/>
+                    </group>
+                
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="view_coupon_tree" model="ir.ui.view">
+        <field name="name">coupon.tree</field>
+        <field name="model">gestion_bonos.coupon</field>
+        <field name="arch" type="xml">
+            <tree string="Coupons">
+                <field name="name"/>
+                <field name="creation_date"/>
+                <field name="expiration_date"/>
+                <field name="discount_type"/>
+                <field name="discount"/>
+                <field name="customer_id"/>
+                <field name="units"/>
+                <field name="product_id"/>
+                <field name="token"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_coupons" model="ir.actions.act_window">
+        <field name="name">Bonos</field>
+        <field name="res_model">gestion_bonos.coupon</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
